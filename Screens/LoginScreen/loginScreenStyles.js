@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
 
   header: {
     fontSize: 30,
-    lineHeight: 1.17,
     textAlign: "center",
     color: "#212121",
     marginBottom: 33,
@@ -35,16 +34,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#F6F6F6",
   },
 
-  btnWrapper: {
-    marginTop: 27,
-    marginBottom: 16,
+  passWrapper: {
+    position: "relative",
   },
 
-  btn: {
-    paddingBottom: 16,
+  show: {
+    position: "absolute",
+    top: 16,
+    right: 16,
   },
 
   lowerText: {
+    paddingBottom: 144,
     textAlign: "center",
   },
 });

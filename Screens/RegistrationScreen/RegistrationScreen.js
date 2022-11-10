@@ -7,14 +7,16 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
-  Button,
 } from "react-native";
+import OrangeButton from "../../shared/components/OrangeButton/OrangeButton.jsx";
 import styles from "./registrationScreenStyles.js";
 
 const RegistrationScreen = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isVisible, setIsVisible] = useState(true);
+  const [isSecure, setIsSecure] = useState(true);
   const nameHandler = (text) => setName(text);
   const emailHandler = (text) => setEmail(text);
   const passwordHandler = (text) => setPassword(text);
@@ -25,6 +27,7 @@ const RegistrationScreen = () => {
     setEmail("");
     setPassword("");
   };
+  const toggleSecure = () => setIsSecure((prevstate) => !prevstate);
   const { OS } = Platform;
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -35,31 +38,43 @@ const RegistrationScreen = () => {
             <TextInput
               style={styles.input}
               placeholder="Логин"
+              onFocus={() => setIsVisible(false)}
+              onBlur={() => setIsVisible(true)}
               onChangeText={nameHandler}
               value={name}
             />
             <TextInput
               style={styles.input}
               placeholder="Адрес электронной почты"
+              onFocus={() => setIsVisible(false)}
+              onBlur={() => setIsVisible(true)}
               onChangeText={emailHandler}
               value={email}
             />
-            <TextInput
-              style={styles.input}
-              placeholder="Пароль"
-              onChangeText={passwordHandler}
-              value={password}
-            />
+            <View style={styles.passWrapper}>
+              <TextInput
+                style={styles.input}
+                placeholder="Пароль"
+                onFocus={() => setIsVisible(false)}
+                onBlur={() => setIsVisible(true)}
+                onChangeText={passwordHandler}
+                value={password}
+                secureTextEntry={isSecure}
+              />
+              <Text onPress={toggleSecure} style={styles.show}>
+                Показать
+              </Text>
+            </View>
           </View>
-          <View style={styles.btnWrapper}>
-            <Button
-              color="#FF6C00"
-              style={styles.btn}
-              title="Зарегистрироваться"
-              onPress={registerHandler}
-            />
-          </View>
-          <Text style={styles.lowerText}>Уже есть аккаунт? Войти</Text>
+          {isVisible && (
+            <View>
+              <OrangeButton
+                text="Зарегистрироваться"
+                onPress={registerHandler}
+              />
+              <Text style={styles.lowerText}>Уже есть аккаунт? Войти</Text>
+            </View>
+          )}
         </KeyboardAvoidingView>
       </View>
     </TouchableWithoutFeedback>
