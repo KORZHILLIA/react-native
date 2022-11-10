@@ -17,11 +17,11 @@ export default function App() {
       (error) => console.log(error.message);
     }
   };
-  if (!ready) {
-    return (
-      <AppLoading startAsync={loadFonts} onFinish={() => setReady(true)} />
-    );
-  }
+  // if (!ready) {
+  //   return (
+  //     <AppLoading startAsync={loadFonts} onFinish={() => setReady(true)} />
+  //   );
+  // }
   return (
     <View style={styles.container}>
       <ImageBackground
