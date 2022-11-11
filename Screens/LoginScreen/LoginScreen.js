@@ -7,7 +7,6 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
-  Button,
 } from "react-native";
 import OrangeButton from "../../shared/components/OrangeButton/OrangeButton.jsx";
 import styles from "./loginScreenStyles.js";

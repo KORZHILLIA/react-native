@@ -5,6 +5,9 @@ import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
 import RegistrationScreen from "./Screens/RegistrationScreen";
 import LoginScreen from "./Screens/LoginScreen";
+import PostsScreen from "./Screens/PostsScreen";
+import CreatePostsScreen from "./Screens/CreatePostsScreen";
+import CommentsScreen from "./Screens/CommentsScreen";
 
 const loadFonts = async () => {
   try {
@@ -32,8 +35,11 @@ export default function App() {
         style={styles.bg}
         source={require("./assets/bg-main.jpg")}
       >
-        <RegistrationScreen />
+        <PostsScreen />
+        {/* <CreatePostsScreen /> */}
+        {/* <RegistrationScreen /> */}
         {/* <LoginScreen /> */}
+        {/* <CommentsScreen /> */}
         <StatusBar style="auto" />
       </ImageBackground>
     </View>
