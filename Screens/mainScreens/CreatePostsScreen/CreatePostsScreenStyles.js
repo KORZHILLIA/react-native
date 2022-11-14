@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   touchable: {
     marginBottom: 32,
   },
-  download: {
+  camera: {
     height: 240,
     alignItems: "center",
     justifyContent: "center",
@@ -56,6 +56,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: "50%",
     backgroundColor: "FFFFFF",
+  },
+  photo: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "10%",
+    height: 240,
   },
   downloadText: {
     fontSize: 16,

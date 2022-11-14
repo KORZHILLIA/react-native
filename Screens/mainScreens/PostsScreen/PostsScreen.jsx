@@ -1,5 +1,4 @@
 import { View, Text, Image } from "react-native";
-import TabNavigation from "../../../shared/components/TabNavigation";
 import styles from "./PostsScreenStyles";
 
 const PostsScreen = () => {
@@ -24,13 +23,6 @@ const PostsScreen = () => {
           </View>
         </View>
       </View>
-      {/* <View style={styles.lower}>
-        <Image source={require("../../../assets/icons/grid.png")} />
-        <View style={styles.add}>
-          <Image source={require("../../../assets/icons/union.png")} />
-        </View>
-        <Image source={require("../../../assets/icons/user.png")} />
-      </View> */}
     </View>
   );
 };

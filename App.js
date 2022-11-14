@@ -106,6 +106,7 @@ const chooseNavigation = (isAuthorized) => {
 };
 
 const routes = chooseNavigation(true);
+
 export default function App() {
   const [ready, setReady] = useState(false);
   if (!ready) {
