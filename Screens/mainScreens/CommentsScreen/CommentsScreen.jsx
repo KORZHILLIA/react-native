@@ -26,7 +26,7 @@ const CommentsScreen = () => {
         <View style={styles.upper}>
           <Image
             style={styles.arrow}
-            source={require("../../assets/icons/arrow-left.png")}
+            source={require("../../../assets/icons/arrow-left.png")}
           />
           <Text style={styles.header}>Комментарии</Text>
         </View>
@@ -34,7 +34,7 @@ const CommentsScreen = () => {
           <View style={styles.imgContainer}>
             <Image
               style={styles.img}
-              source={require("../../assets/sunset.jpg")}
+              source={require("../../../assets/sunset.jpg")}
             />
           </View>
           <FlatList
@@ -50,7 +50,7 @@ const CommentsScreen = () => {
             style={styles.input}
           />
           <View style={styles.arrowUp}>
-            <Image source={require("../../assets/icons/arrow-up.png")} />
+            <Image source={require("../../../assets/icons/arrow-up.png")} />
           </View>
         </View>
       </View>

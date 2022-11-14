@@ -8,15 +8,16 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import OrangeButton from "../../shared/components/OrangeButton/OrangeButton.jsx";
+import OrangeButton from "../../../shared/components/OrangeButton";
 import styles from "./registrationScreenStyles.js";
 
-const RegistrationScreen = () => {
+const RegistrationScreen = ({ navigation }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isVisible, setIsVisible] = useState(true);
   const [isSecure, setIsSecure] = useState(true);
+  const { navigate } = navigation;
   const nameHandler = (text) => setName(text);
   const emailHandler = (text) => setEmail(text);
   const passwordHandler = (text) => setPassword(text);
@@ -72,7 +73,10 @@ const RegistrationScreen = () => {
                 text="Зарегистрироваться"
                 onPress={registerHandler}
               />
-              <Text style={styles.lowerText}>Уже есть аккаунт? Войти</Text>
+              <Text style={styles.lowerText}>
+                Уже есть аккаунт?
+                <Text onPress={() => navigate("Login")}> Войти</Text>
+              </Text>
             </View>
           )}
         </KeyboardAvoidingView>

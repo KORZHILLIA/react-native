@@ -8,7 +8,7 @@ const Comment = ({ item, idx }) => {
     <View style={isOdd ? styles.leftTemplate : styles.rightTemplate}>
       <Image
         style={isOdd ? styles.leftImg : styles.rightImg}
-        source={require(`../../../assets/commentsAvatar/user2.png`)}
+        source={require(`../../../../assets/commentsAvatar/user2.png`)}
       />
       <View style={isOdd ? styles.leftComment : styles.rightComment}>
         <Text style={styles.text}>{text}</Text>

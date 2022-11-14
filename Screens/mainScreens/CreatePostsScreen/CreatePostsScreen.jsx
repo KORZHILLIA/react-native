@@ -10,7 +10,7 @@ import {
   Platform,
   Keyboard,
 } from "react-native";
-import TrashButton from "../../shared/components/TrashButton";
+import TrashButton from "../../../shared/components/TrashButton";
 import styles from "./CreatePostsScreenStyles";
 
 const CreatePostsScreen = () => {
@@ -22,7 +22,7 @@ const CreatePostsScreen = () => {
         <View style={styles.upper}>
           <Image
             style={styles.arrow}
-            source={require("../../assets/icons/arrow-left.png")}
+            source={require("../../../assets/icons/arrow-left.png")}
           />
           <Text style={styles.header}>Создать публикацию</Text>
         </View>
@@ -33,7 +33,7 @@ const CreatePostsScreen = () => {
                 <View style={styles.download}>
                   <View style={styles.cameraBgInactive}>
                     <Image
-                      source={require("../../assets/icons/camera-gray.png")}
+                      source={require("../../../assets/icons/camera-gray.png")}
                     />
                   </View>
                 </View>
@@ -58,7 +58,7 @@ const CreatePostsScreen = () => {
                 />
                 <Image
                   style={styles.locationIcon}
-                  source={require("../../assets/icons/location.png")}
+                  source={require("../../../assets/icons/location.png")}
                 />
               </View>
             </View>

@@ -24,8 +24,6 @@ const styles = StyleSheet.create({
   },
   middle: {
     flex: 1,
-    borderBottomWidth: 1,
-    borderBottomColor: "rgba(0, 0, 0, 0.3)",
     paddingTop: 32,
     paddingBottom: 32,
     paddingLeft: 16,
@@ -52,6 +50,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     paddingTop: 9,
     paddingBottom: 34,
+    borderTopWidth: 1,
+    borderTopColor: "rgba(0, 0, 0, 0.3)",
   },
   add: {
     width: 70,

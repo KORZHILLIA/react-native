@@ -8,21 +8,28 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import OrangeButton from "../../shared/components/OrangeButton/OrangeButton.jsx";
+import OrangeButton from "../../../shared/components/OrangeButton";
 import styles from "./loginScreenStyles.js";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isVisible, setIsVisible] = useState(true);
   const [isSecure, setIsSecure] = useState(true);
+  const { navigate } = navigation;
   const emailHandler = (text) => setEmail(text);
   const passwordHandler = (text) => setPassword(text);
   const registerHandler = () => {
     const data = { email, password };
     console.log(data);
-    setEmail("");
-    setPassword("");
+    if (email && password) {
+      navigate("Posts");
+      setEmail("");
+      setPassword("");
+      return;
+    } else {
+      return;
+    }
   };
   const toggleSecure = () => setIsSecure((prevstate) => !prevstate);
   const { OS } = Platform;
@@ -59,7 +66,11 @@ const LoginScreen = () => {
             <View>
               <OrangeButton text="Войти" onPress={registerHandler} />
               <Text style={styles.lowerText}>
-                Нет аккаунта? Зарегистрироваться
+                Нет аккаунта?
+                <Text onPress={() => navigate("Register")}>
+                  {" "}
+                  Зарегистрироваться
+                </Text>
               </Text>
             </View>
           )}

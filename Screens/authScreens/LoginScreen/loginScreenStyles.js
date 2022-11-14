@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    paddingTop: 92,
+    paddingTop: 32,
     paddingLeft: 16,
     paddingRight: 16,
     borderTopLeftRadius: 25,
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
 
   form: {
-    marginBottom: 16,
+    marginBottom: 43,
   },
 
   header: {
@@ -45,7 +45,9 @@ const styles = StyleSheet.create({
   },
 
   lowerText: {
-    paddingBottom: 78,
+    paddingBottom: 144,
+    fontSize: 16,
+    lineHeight: 19,
     textAlign: "center",
   },
 });
