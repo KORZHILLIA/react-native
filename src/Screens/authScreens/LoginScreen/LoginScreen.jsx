@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   View,
   Text,
@@ -8,6 +9,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
+import { signIn } from "../../../redux/auth/authOperations";
 import OrangeButton from "../../../shared/components/OrangeButton";
 import styles from "./loginScreenStyles.js";
 
@@ -17,19 +19,12 @@ const LoginScreen = ({ navigation }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isSecure, setIsSecure] = useState(true);
   const { navigate } = navigation;
+  const dispatch = useDispatch();
   const emailHandler = (text) => setEmail(text);
   const passwordHandler = (text) => setPassword(text);
-  const registerHandler = () => {
+  const loginHandler = () => {
     const data = { email, password };
-    console.log(data);
-    if (email && password) {
-      navigate("Posts");
-      setEmail("");
-      setPassword("");
-      return;
-    } else {
-      return;
-    }
+    dispatch(signIn(data));
   };
   const toggleSecure = () => setIsSecure((prevstate) => !prevstate);
   const { OS } = Platform;
@@ -64,7 +59,7 @@ const LoginScreen = ({ navigation }) => {
           </View>
           {isVisible && (
             <View>
-              <OrangeButton text="Войти" onPress={registerHandler} />
+              <OrangeButton text="Войти" onPress={loginHandler} />
               <Text style={styles.lowerText}>
                 Нет аккаунта?
                 <Text onPress={() => navigate("Register")}>

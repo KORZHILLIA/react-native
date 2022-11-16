@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "105372455638",
+    "firebase_url": "https://neat-tempo-367215-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "neat-tempo-367215",
+    "storage_bucket": "neat-tempo-367215.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105372455638:android:761656404058acbce6ef77",
+        "android_client_info": {
+          "package_name": "korj.illia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105372455638-pth9dc2mrlj43q58vt1v0j8c8ks49660.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAexgI4tys_EmwP2dmOV32G9E49r-s01gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105372455638-pth9dc2mrlj43q58vt1v0j8c8ks49660.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

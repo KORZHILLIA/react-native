@@ -20,6 +20,8 @@ const CreatePostsScreen = ({ navigation }) => {
   const [permission, setPermission] = useState(null);
   const [camera, setCamera] = useState(null);
   const [photo, setPhoto] = useState("");
+  const [title, setTitle] = useState("");
+  const [location, setLocation] = useState("");
   const { navigate } = navigation;
   const { OS } = Platform;
   useEffect(() => {
@@ -34,6 +36,14 @@ const CreatePostsScreen = ({ navigation }) => {
     const { uri } = await camera.takePictureAsync();
     await MediaLibrary.createAssetAsync(uri);
     setPhoto(uri);
+  };
+
+  const updateTitle = ({ target }) => {
+    setTitle(target.value);
+  };
+
+  const updateLocation = ({ target }) => {
+    setLocation(target.value);
   };
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -77,6 +87,8 @@ const CreatePostsScreen = ({ navigation }) => {
             <View style={styles.form}>
               <TextInput
                 style={styles.name}
+                value={title}
+                onChange={updateTitle}
                 placeholder="Название..."
                 onFocus={() => setIsImgVisible(false)}
                 onBlur={() => setIsImgVisible(true)}
@@ -84,6 +96,8 @@ const CreatePostsScreen = ({ navigation }) => {
               <View style={styles.location}>
                 <TextInput
                   style={styles.locationInput}
+                  value={location}
+                  onChange={updateLocation}
                   placeholder="Местность..."
                   onFocus={() => setIsImgVisible(false)}
                   onBlur={() => setIsImgVisible(true)}
@@ -95,7 +109,7 @@ const CreatePostsScreen = ({ navigation }) => {
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => navigate("Posts", { photo })}
+              onPress={() => navigate("Posts", { photo, title, location })}
               style={styles.share}
             >
               <Text style={styles.shareText}>Опубликовать</Text>

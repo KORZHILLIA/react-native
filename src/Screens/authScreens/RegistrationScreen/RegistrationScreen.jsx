@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   View,
   Text,
@@ -8,6 +9,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
+import { signUp } from "../../../redux/auth/authOperations";
 import OrangeButton from "../../../shared/components/OrangeButton";
 import styles from "./registrationScreenStyles.js";
 
@@ -18,15 +20,19 @@ const RegistrationScreen = ({ navigation }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isSecure, setIsSecure] = useState(true);
   const { navigate } = navigation;
+  const dispatch = useDispatch();
   const nameHandler = (text) => setName(text);
   const emailHandler = (text) => setEmail(text);
   const passwordHandler = (text) => setPassword(text);
-  const registerHandler = () => {
-    const data = { name, email, password };
-    console.log(data);
+  const reset = () => {
     setName("");
     setEmail("");
     setPassword("");
+  };
+  const registerHandler = () => {
+    const userData = { name, email, password };
+    dispatch(signUp(userData));
+    reset();
   };
   const toggleSecure = () => setIsSecure((prevstate) => !prevstate);
   const { OS } = Platform;

@@ -1,7 +1,14 @@
+import { useDispatch } from "react-redux";
 import { View, Image, Text, TouchableOpacity } from "react-native";
+import { logOut } from "../../../redux/auth/authOperations";
 import styles from "./ProfileScreenStyles";
 
 const ProfileScreen = () => {
+  const dispatch = useDispatch();
+
+  const logOut = () => {
+    dispatch(logOut());
+  };
   return (
     <View style={styles.container}>
       <View style={styles.profileImg}>
@@ -13,10 +20,12 @@ const ProfileScreen = () => {
           <Image source={require("../../../assets/icons/union-gray.png")} />
         </TouchableOpacity>
       </View>
-      <Image
-        style={styles.logout}
-        source={require("../../../assets/icons/log-out.png")}
-      />
+      <View onPress={logOut}>
+        <Image
+          style={styles.logout}
+          source={require("../../../assets/icons/log-out.png")}
+        />
+      </View>
       <Text style={styles.header}>Natali Romanova</Text>
     </View>
   );

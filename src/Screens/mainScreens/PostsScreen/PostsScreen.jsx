@@ -1,7 +1,16 @@
-import { View, Text, Image } from "react-native";
+import { useState, useEffect } from "react";
+import { View, Text, Image, FlatList } from "react-native";
+import PostItem from "./PostItem";
 import styles from "./PostsScreenStyles";
 
-const PostsScreen = () => {
+const PostsScreen = ({ route }) => {
+  const { params } = route;
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    if (params) {
+      setPosts((prevState) => [...prevState, params]);
+    }
+  }, [params]);
   return (
     <View style={styles.container}>
       <View style={styles.upper}>
@@ -22,6 +31,14 @@ const PostsScreen = () => {
             <Text style={styles.email}>email@example.com</Text>
           </View>
         </View>
+        <FlatList
+          data={posts}
+          keyExtractor={(_, index) => String(index)}
+          renderItem={({ item }) => {
+            const { photo, title, location } = item;
+            return <PostItem img={photo} title={title} location={location} />;
+          }}
+        />
       </View>
     </View>
   );
